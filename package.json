@@ -1,0 +1,51 @@
+{
+    "author": {
+        "email": "support@seven.io",
+        "name": "seven communications GmbH & Co. KG",
+        "url": "https://seven.io"
+    },
+    "bugs": {
+        "email": "support@sms77.io",
+        "url": "https://github.com/sms77io/js-client/issues"
+    },
+    "contributors": [
+        {
+            "email": "a.matthies@seven.io",
+            "name": "André Matthies",
+            "url": "https://seven.io"
+        }
+    ],
+    "dependencies": {
+        "sms77-client": "^2.24.0",
+        "node-fetch": "^2.6.7"
+    },
+    "description": "LoopBack connector for seven",
+    "devDependencies": {
+        "@types/node-fetch": "^2.6.2",
+        "typescript": "^4.8.4"
+    },
+    "files": [
+        "dist/**/*"
+    ],
+    "homepage": "https://github.com/seven-io/loopback",
+    "keywords": [
+        "loopback",
+        "seven",
+        "sms77",
+        "StrongLoop"
+    ],
+    "license": "MIT",
+    "main": "dist/index.js",
+    "name": "loopback-connector-seven",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/seven-io/loopback-connector-seven"
+    },
+    "scripts": {
+        "build": "tsc",
+        "prepublishOnly": "npm run build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "types": "dist/index.d.ts",
+    "version": "1.0.0"
+}
