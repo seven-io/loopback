@@ -1,6 +1,6 @@
 import assert from 'assert'
 import fetch from 'node-fetch'
-import Sms77Client from 'sms77-client'
+import SevenClient from 'sms77-client'
 import {SevenDataAccessObject} from './SevenDataAccessObject'
 import {DataSource, SevenConnectorOptions} from './types'
 
@@ -8,7 +8,7 @@ if (!globalThis.fetch) globalThis.fetch = fetch as unknown as typeof globalThis.
 
 export class SevenConnector {
     DataAccessObject: SevenDataAccessObject
-    client: Sms77Client
+    client: SevenClient
     dataSource?: DataSource
     name = 'SevenConnector'
 
@@ -20,7 +20,7 @@ export class SevenConnector {
 
         console.log('options', options)
 
-        this.client = new Sms77Client(options.apiKey, 'LoopBack')
+        this.client = new SevenClient(options.apiKey, 'LoopBack')
         this.DataAccessObject = new SevenDataAccessObject({connector: this})
     }
 }

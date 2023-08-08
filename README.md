@@ -1,13 +1,15 @@
+![](https://www.seven.io/wp-content/uploads/Logo.svg "seven Logo")
+
 ## loopback-connector-seven
 
 The official [seven](http://www.seven.io/) connector for [LoopBack](https://loopback.io).
-Prior to using you will need to [create an API key](https://help.sms77.io/en/api-key-access).
+Prior to using you will need to [create an API key](https://help.seven.io/en/api-key-access).
 
 This connector supports the following endpoints of
-the [seven REST API](https://www.sms77.io/de/docs/gateway/http-api/):
+the [seven REST API](https://www.seven.io/en/docs/gateway/http-api/):
 
-- [Sending SMS](https://www.sms77.io/de/docs/gateway/http-api/sms-versand/)
-- [Making text-to-speech calls](https://www.sms77.io/de/docs/gateway/http-api/voice/)
+- [Sending SMS](https://www.seven.io/en/docs/gateway/http-api/sms-dispatch/)
+- [Making text-to-speech calls](https://www.seven.io/en/docs/gateway/http-api/voice/)
 
 ## Installation
 
@@ -31,7 +33,7 @@ import {juggler} from '@loopback/repository'
 import {SevenConnector} from 'loopback-connector-seven'
 
 const config = {
-    apiKey: process.env.SMS77_DUMMY_API_KEY,
+    apiKey: process.env.SEVEN_API_KEY,
     connector: SevenConnector,
     name: 'seven',
 }
@@ -210,6 +212,6 @@ export class TextToSpeechController {
 
 ### Support
 
-Need help? Feel free to [contact us](https://www.sms77.io/en/company/contact/).
+Need help? Feel free to [contact us](https://www.seven.io/en/company/contact/).
 
 [![MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE)

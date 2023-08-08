@@ -2,17 +2,17 @@
     "author": {
         "email": "support@seven.io",
         "name": "seven communications GmbH & Co. KG",
-        "url": "https://seven.io"
+        "url": "https://www.seven.io"
     },
     "bugs": {
-        "email": "support@sms77.io",
-        "url": "https://github.com/sms77io/js-client/issues"
+        "email": "support@seven.io",
+        "url": "https://github.com/seven-io/loopback/issues"
     },
     "contributors": [
         {
-            "email": "a.matthies@seven.io",
-            "name": "André Matthies",
-            "url": "https://seven.io"
+            "email": "support@seven.io",
+            "name": "seven communications GmbH & Co. KG",
+            "url": "https://www.seven.io"
         }
     ],
     "dependencies": {
