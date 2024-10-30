@@ -36,7 +36,7 @@
     ],
     "license": "MIT",
     "main": "dist/index.js",
-    "name": "loopback-connector-seven",
+    "name": "@seven.io/loopback",
     "repository": {
         "type": "git",
         "url": "https://github.com/seven-io/loopback-connector-seven"

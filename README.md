@@ -17,11 +17,11 @@ In your LoopBack project:
 
 ### NPM
 
-    $ npm i loopback-connector-seven
+    $ npm i @seven.io/loopback
 
 ### Yarn
 
-    $ yarn add loopback-connector-seven
+    $ yarn add @seven.io/loopback
 
 ## Setup
 
@@ -30,7 +30,7 @@ In your LoopBack project:
 ```typescript
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core'
 import {juggler} from '@loopback/repository'
-import {SevenConnector} from 'loopback-connector-seven'
+import {SevenConnector} from '@seven.io/loopback'
 
 const config = {
     apiKey: process.env.SEVEN_API_KEY,
