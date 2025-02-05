@@ -15,8 +15,6 @@ export class SevenDataAccessObject {
 
             assert(this.dataSource.connector, 'cannot use this module without a connector!')
 
-            options.json = true
-
             switch (options.operation) {
                 case 'sms':
                     const smsResource = new SmsResource(this.dataSource.connector.client)

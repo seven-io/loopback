@@ -8,7 +8,6 @@ export type DataSource = {
 export type MessageOptions = {
     from?: string
     operation: 'sms' | 'voice'
-    json?: boolean
     text: string
     to: string
 }
