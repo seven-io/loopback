@@ -1,6 +1,6 @@
 import assert from 'assert'
 import {DataSource, MessageOptions} from './types'
-import {SmsResource, VoiceResource} from '@seven.io/client'
+import {RcsResource, SmsResource, VoiceResource} from '@seven.io/client'
 
 export class SevenDataAccessObject {
     dataSource: DataSource
@@ -16,6 +16,13 @@ export class SevenDataAccessObject {
             assert(this.dataSource.connector, 'cannot use this module without a connector!')
 
             switch (options.operation) {
+                case 'rcs':
+                    const resource = new RcsResource(this.dataSource.connector.client)
+                    return resource.dispatch({
+                        from: options.from,
+                        text: options.text,
+                        to: options.to,
+                    })
                 case 'sms':
                     const smsResource = new SmsResource(this.dataSource.connector.client)
                     return smsResource.dispatch({

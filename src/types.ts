@@ -7,7 +7,7 @@ export type DataSource = {
 
 export type MessageOptions = {
     from?: string
-    operation: 'sms' | 'voice'
+    operation: 'rcs' | 'sms' | 'voice'
     text: string
     to: string
 }

@@ -6,10 +6,11 @@ The official [seven](http://www.seven.io/) connector for [LoopBack](https://loop
 Prior to using you will need to [create an API key](https://help.seven.io/en/api-key-access).
 
 This connector supports the following endpoints of
-the [seven REST API](https://www.seven.io/en/docs/gateway/http-api/):
+the [seven REST API](https://docs.seven.io/en/rest-api/first-steps):
 
-- [Sending SMS](https://www.seven.io/en/docs/gateway/http-api/sms-dispatch/)
-- [Making text-to-speech calls](https://www.seven.io/en/docs/gateway/http-api/voice/)
+- [Sending SMS](https://docs.seven.io/en/rest-api/endpoints/sms#send-sms)
+- [Making text-to-speech calls](http://docs.seven.io/en/rest-api/endpoints/voice#send-voice-call)
+- [Sending RCS messages](https://docs.seven.io/en/rest-api/endpoints/rcs#send-rcs)
 
 ## Installation
 
@@ -190,6 +191,38 @@ export class TextToSpeechController {
 }
 ```
 
+### Send a RCS message
+
+```typescript
+import {inject} from '@loopback/core'
+import {post} from '@loopback/rest'
+import {SevenMessage} from '../models'
+import {Seven} from '../services'
+
+export class TextToSpeechController {
+    @post('/send-rcs')
+    async rcs(
+        @inject('services.Seven') sevenProvider: Seven,
+    ): Promise<void> {
+        const msg = new SevenMessage({
+            from: 'optional caller ID',
+            operation: 'rcs',
+            text: 'This is a test call from LoopBack via seven',
+            to: 'the number for calling',
+        })
+
+        try {
+            const json = await sevenProvider.send(msg)
+            console.log('json', json)
+        } catch (e) {
+            console.error('e', e)
+
+            throw e
+        }
+    }
+}
+```
+
 ## Options
 
 ### Send SMS
@@ -207,6 +240,15 @@ export class TextToSpeechController {
         from: 'OPTIONAL_CALLER_ID',
         operation: 'call',
         text: 'TEXT_OR_XML',
+        to: 'TARGET_PHONE_NUMBER'
+    }
+
+### Send RCS
+
+    {
+        from: 'OPTIONAL_AGENT_ID',
+        operation: 'sms',
+        text: 'RCS_MESSAGE',
         to: 'TARGET_PHONE_NUMBER'
     }
 
