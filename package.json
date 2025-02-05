@@ -16,13 +16,13 @@
         }
     ],
     "dependencies": {
-        "sms77-client": "^2.24.0",
+        "@seven.io/client": "^4.3.0",
         "node-fetch": "^2.6.7"
     },
     "description": "LoopBack connector for seven",
     "devDependencies": {
         "@types/node-fetch": "^2.6.2",
-        "typescript": "^4.8.4"
+        "typescript": "^5.7.3"
     },
     "files": [
         "dist/**/*"
@@ -31,7 +31,6 @@
     "keywords": [
         "loopback",
         "seven",
-        "sms77",
         "StrongLoop"
     ],
     "license": "MIT",
@@ -47,5 +46,5 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "types": "dist/index.d.ts",
-    "version": "1.0.0"
+    "version": "1.1.0"
 }

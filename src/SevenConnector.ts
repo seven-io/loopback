@@ -1,6 +1,6 @@
 import assert from 'assert'
 import fetch from 'node-fetch'
-import SevenClient from 'sms77-client'
+import {Client} from '@seven.io/client'
 import {SevenDataAccessObject} from './SevenDataAccessObject'
 import {DataSource, SevenConnectorOptions} from './types'
 
@@ -8,7 +8,7 @@ if (!globalThis.fetch) globalThis.fetch = fetch as unknown as typeof globalThis.
 
 export class SevenConnector {
     DataAccessObject: SevenDataAccessObject
-    client: SevenClient
+    client: Client
     dataSource?: DataSource
     name = 'SevenConnector'
 
@@ -18,9 +18,7 @@ export class SevenConnector {
             'cannot initialize SevenConnector without a options object',
         )
 
-        console.log('options', options)
-
-        this.client = new SevenClient(options.apiKey, 'LoopBack')
+        this.client = new Client({apiKey: options.apiKey, sentWith: 'LoopBack'})
         this.DataAccessObject = new SevenDataAccessObject({connector: this})
     }
 }

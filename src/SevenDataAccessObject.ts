@@ -1,5 +1,6 @@
 import assert from 'assert'
 import {DataSource, MessageOptions} from './types'
+import {SmsResource, VoiceResource} from '@seven.io/client'
 
 export class SevenDataAccessObject {
     dataSource: DataSource
@@ -18,9 +19,19 @@ export class SevenDataAccessObject {
 
             switch (options.operation) {
                 case 'sms':
-                    return this.dataSource.connector.client.sms(options)
+                    const smsResource = new SmsResource(this.dataSource.connector.client)
+                    return smsResource.dispatch({
+                        from: options.from,
+                        text: options.text,
+                        to: options.to.split(','),
+                    })
                 case 'voice':
-                    return this.dataSource.connector.client.voice(options)
+                    const voiceResource = new VoiceResource(this.dataSource.connector.client)
+                    return voiceResource.dispatch({
+                        from: options.from,
+                        text: options.text,
+                        to: options.to,
+                    })
                 default:
                     assert(false, `seven message of type ${options.operation} is not supported`)
             }
