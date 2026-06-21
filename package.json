@@ -17,7 +17,7 @@
     ],
     "dependencies": {
         "@seven.io/client": "^4.3.0",
-        "node-fetch": "^2.6.7"
+        "node-fetch": "^3.3.2"
     },
     "description": "LoopBack connector for seven",
     "devDependencies": {
